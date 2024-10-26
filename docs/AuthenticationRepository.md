@@ -43,4 +43,4 @@ class AuthenticationRepository {
   }
 }
 ```
-The `AuthUser` is defined in [auth_user.dart](../lib/models/auth_user.dart) which contains the key parameters of the user returned from Firebase.
+The `AuthUser` is defined in [auth_user.dart](/lib/models/auth_user.dart) which contains the key parameters of the user returned from Firebase.
