@@ -1,6 +1,6 @@
 # Bottom Navigation
 
-![Bottom Navigation](/docs/images//BottomNavigation.gif =200x)
+![Bottom Navigation](/docs/images//BottomNavigation.gif)
 
 In the definition of the `router` object, as explained in [Router Docs](/docs/Router.md), we have the `builder` property of the `ShellRoute`. This is a `ScaffoldWithNavBar` object defined in [scaffold_with_nav_bar.dart](/lib/widgets/scaffold_with_nav_bar.dart).
 ```dart
