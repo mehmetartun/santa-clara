@@ -15,24 +15,21 @@ class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   AuthenticationBloc() : super(AuthenticationInitialState()) {
     on<AuthenticationEvent>((event, emit) {
-      // TODO: implement event handler
+      // TODO: implement event handler - this is the abstract class
     });
     on<AuthenticationInitializeEvent>((event, emit) {
       init(event, emit);
     });
     on<AuthenticationSignOutEvent>((event, emit) {
-      // TODO: implement event handler
       signOut(event, emit);
     });
     on<AuthenticationSignInEvent>((event, emit) {
-      // TODO: implement event handler
+      // Implement manual sign in (away from FirebaseUIAuth package)
     });
     on<AuthenticationSignedInEvent>((event, emit) {
-      // TODO: implement event handler
       emit(AuthenticationSignedInState(user: user!));
     });
     on<AuthenticationSignedOutEvent>((event, emit) {
-      // TODO: implement event handler
       emit(AuthenticationNotSignedInState());
     });
   }

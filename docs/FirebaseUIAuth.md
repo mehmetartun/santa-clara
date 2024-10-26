@@ -5,6 +5,8 @@ We use the package [firebase_ui_auth](https://pub.dev/packages/firebase_ui_auth)
 - Forgot password
 - Register
 
+![SignIn](/docs/images/SignIn.mp4)
+
 ## SignInScreen
 
 For signing in we utilize the `SignInScreen` from the [firebase_ui_auth](https://pub.dev/packages/firebase_ui_auth) in [sign_in_page.dart](/lib/pages/signIn/sign_in_page.dart). The `providers` property lists the method with which we allow logging in, namely email and password in this case. One would implement other providers here in future, like Google, Apple, etc. The user cannot go past this page unless the result is `AuthStateChangeAction<SignedIn>`. In this case we check if email is verified and redirect to the correct destination, i.e. `verifyEmail` or to `initialLocation`. 

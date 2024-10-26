@@ -3,7 +3,7 @@ To abstract our code from direct implementation of an external service like Fire
 
 In [authentication_repository.dart](lib/repositories/authentication/authentication_repository.dart) we create `signOut()` and `getCurrentUser()` methods corresponding to the same in the [firebase_auth](https://pub.dev/packages/firebase_auth) package. 
 
-In addition, we also convert the `authStateChanges()` stream of the Firebase Auth API, to a stream of `AuthUser` objects that we created. 
+In addition, we also convert the `authStateChanges()` stream of the Firebase Auth API, to a stream of `AuthUser` objects that we created. The `AuthUser` is defined in [auth_user.dart](/lib/models/auth_user.dart) which contains the key parameters of the user returned from Firebase.
 ```dart
 class AuthenticationRepository {
   AuthUser getCurrentUser() {
@@ -43,4 +43,5 @@ class AuthenticationRepository {
   }
 }
 ```
-The `AuthUser` is defined in [auth_user.dart](/lib/models/auth_user.dart) which contains the key parameters of the user returned from Firebase.
+
+

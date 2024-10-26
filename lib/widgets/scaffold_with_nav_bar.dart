@@ -21,8 +21,6 @@ class ScaffoldWithNavBar extends StatelessWidget {
     return Scaffold(
       body: child,
       bottomNavigationBar: NavigationBar(
-        elevation: 5,
-        // backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         destinations: List.generate(
           IndexedRoutes().routes.length,
           (index) {
@@ -35,18 +33,6 @@ class ScaffoldWithNavBar extends StatelessWidget {
             );
           },
         ),
-
-        // items: List.generate(
-        //   IndexedRoutes().routes.length,
-        //   (index) {
-        //     return BottomNavigationBarItem(
-        //       backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-        //       icon: Icon(
-        //           IndexedRoutes().routes[index].icon ?? Icons.question_mark),
-        //       label: 'Users',
-        //     );
-        //   },
-        // ),
         selectedIndex: _calculateSelectedIndex(context),
         onDestinationSelected: (int idx) => _onItemTapped(idx, context),
       ),
