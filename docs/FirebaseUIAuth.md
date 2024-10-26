@@ -5,7 +5,7 @@ We use the package [firebase_ui_auth](https://pub.dev/packages/firebase_ui_auth)
 - Forgot password
 - Register
 
-![SignIn](/docs/images/SignIn.mp4)
+![SignIn](/docs/images/SignIn.gif)
 
 ## SignInScreen
 
