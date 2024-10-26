@@ -38,7 +38,7 @@ class IndexedRoutes {
 
   int getIndex(String path) {
     return routes.indexWhere((route) {
-      return route.path == path;
+      return path.contains(route.path);
     });
   }
 
