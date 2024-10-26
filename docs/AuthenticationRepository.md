@@ -1,7 +1,7 @@
 # Authentication Repository
 To abstract our code from direct implementation of an external service like Firebase Auth, we create an authentication repository that interfaces with Firebase.
 
-In [authentication_repository.dart](lib/repositories/authentication/authentication_repository.dart) we create `signOut()` and `getCurrentUser` methods corresponding to the same in the [firebase_auth](https://pub.dev/packages/firebase_auth) package. 
+In [authentication_repository.dart](lib/repositories/authentication/authentication_repository.dart) we create `signOut()` and `getCurrentUser()` methods corresponding to the same in the [firebase_auth](https://pub.dev/packages/firebase_auth) package. 
 
 In addition, we also convert the `authStateChanges()` stream of the Firebase Auth API, to a stream of `AuthUser` objects that we created. 
 ```dart
@@ -43,4 +43,4 @@ class AuthenticationRepository {
   }
 }
 ```
-The `AuthUser` is defined in [auth_user.dart](lib/models/auth_user.dart) which contains the key parameters of the user returned from Firebase.
+The `AuthUser` is defined in [auth_user.dart](../lib/models/auth_user.dart) which contains the key parameters of the user returned from Firebase.
