@@ -17,13 +17,10 @@ class SignInPage extends StatelessWidget {
         providers: [EmailAuthProvider()],
         actions: [
           AuthStateChangeAction<SignedIn>((context, state) {
-            print(state.user);
             if (!state.user!.emailVerified) {
               GoRouter.of(context).goNamed(RouteName.verifyEmail.name);
-              // Navigator.pushNamed(context, '/verify-email');
             } else {
               GoRouter.of(context).goNamed(IndexedRoutes().routes[0].name);
-              // Navigator.pushReplacementNamed(context, '/profile');
             }
           }),
         ],

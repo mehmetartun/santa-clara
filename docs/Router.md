@@ -25,7 +25,7 @@ The `Route` objects defined above are used in the `RouteName` class in [route_na
 ```dart
 class RouteName {
   static Route home = Route(name: 'home', path: '/');
-  ...
+  ... // other top lavel destinations here
 }
 ```
 ## IndexedRoutes
@@ -39,7 +39,7 @@ class IndexedRoutes {
         label: 'Images',
         icon: Icons.image,
         child: GenericPage(title: "Images")),
-    ...    
+    ...    // other routes here
   ];
 
   int getIndex(String path) {
@@ -85,7 +85,7 @@ GoRouter router(AuthenticationBloc authenticationBloc) {
       initialLocation: "/images",
       refreshListenable: StreamToListenable([authenticationBloc.stream]),
       redirect: (context, state) {
-        ...
+        ... // redirect logic here
       },
       routes: [
         GoRoute(
@@ -104,7 +104,7 @@ GoRouter router(AuthenticationBloc authenticationBloc) {
             )
           ],
         ),
-        ... 
+        ... // other routes here
       ]);
 }
 ```
