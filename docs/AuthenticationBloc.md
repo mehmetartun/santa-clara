@@ -31,6 +31,10 @@ class AuthenticationBloc
     ... // Update internal user based on changed AuthUser
   }
 
+    void verifyEmail(event, emit) {
+    ... // Handle verify Email in authentication Repository
+  }
+
   @override
   Future<void> close() {
     authUserStreamSubscription?.cancel();

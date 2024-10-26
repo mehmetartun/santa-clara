@@ -1,7 +1,5 @@
-import 'package:csen268_f24_g0/widgets/brightness_selector.dart';
 import 'package:csen268_f24_g0/widgets/logged_in_user_avatar.dart';
 import 'package:csen268_f24_g0/widgets/main_drawer.dart';
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {

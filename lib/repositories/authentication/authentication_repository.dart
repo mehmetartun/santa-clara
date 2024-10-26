@@ -23,6 +23,11 @@ class AuthenticationRepository {
     await auth.FirebaseAuth.instance.signOut();
   }
 
+  Future<void> verifyEmail(String? email) async {
+    await auth.FirebaseAuth.instance.currentUser?.sendEmailVerification();
+    await auth.FirebaseAuth.instance.signOut();
+  }
+
   Stream<AuthUser> get authUserStream async* {
     await for (final user in auth.FirebaseAuth.instance.authStateChanges()) {
       if (user == null) {

@@ -32,6 +32,9 @@ class AuthenticationBloc
     on<AuthenticationSignedOutEvent>((event, emit) {
       emit(AuthenticationNotSignedInState());
     });
+    on<AuthenticationEmailVerificationRequest>((event, emit) {
+      verifyEmail(event, emit);
+    });
   }
   late final AuthenticationRepository authenticationRepository;
   User? user;
@@ -64,6 +67,10 @@ class AuthenticationBloc
       emailVerified: authUser.emailVerified ?? false,
     );
     add(AuthenticationSignedInEvent());
+  }
+
+  void verifyEmail(event, emit) {
+    authenticationRepository.verifyEmail(user?.email);
   }
 
   @override

@@ -35,7 +35,8 @@ GoRouter router(AuthenticationBloc authenticationBloc) {
       refreshListenable: StreamToListenable([authenticationBloc.stream]),
       redirect: (context, state) {
         if (BlocProvider.of<AuthenticationBloc>(context).state
-            is! AuthenticationSignedInState) {
+                is! AuthenticationSignedInState &&
+            !(state.fullPath?.startsWith(RouteName.signIn.path) ?? false)) {
           return RouteName.signIn.path;
         }
         if (state.fullPath?.startsWith(RouteName.verifyEmail.path) ?? false) {
@@ -50,6 +51,12 @@ GoRouter router(AuthenticationBloc authenticationBloc) {
               return RouteName.verifyEmail.path;
             }
           }
+        }
+        if (BlocProvider.of<AuthenticationBloc>(context).state
+                is AuthenticationSignedInState &&
+            !(state.fullPath?.startsWith(RouteName.verifyEmail.path) ??
+                false)) {
+          return "/images";
         }
         return null;
       },
