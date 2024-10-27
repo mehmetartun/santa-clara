@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:csen268_f24_g0/theme/theme.dart';
+import 'package:santa_clara/theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 import 'blocs/authentication/bloc/authentication_bloc.dart';
 import 'firebase_options.dart';
@@ -14,6 +16,7 @@ import 'theme/util.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  usePathUrlStrategy();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -87,7 +90,7 @@ class MyApp extends StatelessWidget {
           child: BlocBuilder<ThemeCubit, ThemeState>(
             builder: (context, state) {
               return MaterialApp.router(
-                title: 'Flutter Demo',
+                title: 'Santa Clara',
                 theme: theme.light(),
                 darkTheme: theme.dark(),
                 highContrastTheme: theme.lightHighContrast(),

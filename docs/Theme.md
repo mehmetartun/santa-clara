@@ -1,6 +1,10 @@
 # Material Theme
 
-The material3 theme can be designed in Figma and exported for flutter. The resultimg `theme.dart` file needs to be placed at `lib/theme/` as [theme.dart](/lib/theme/theme.dart).
+The material3 theme can be designed in Figma and exported for flutter. The resultimg `theme.dart` and `util.dart` files need to be placed at `lib/theme/` as [theme.dart](/lib/theme/theme.dart) and [util.dart](/lib/theme/util.dart).
+
+## Google Fonts
+
+The `google_fonts` package is imported allowing the use of Google Fonts. The `TextTheme` is built using Google Fonts and merged with the color scheme.
 
 ## Theme cubit
 

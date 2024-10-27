@@ -1,11 +1,8 @@
-import 'package:csen268_f24_g0/navigation/route_name.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import 'package:santa_clara/blocs/authentication/bloc/authentication_bloc.dart';
+import 'package:santa_clara/navigation/my_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../blocs/authentication/bloc/authentication_bloc.dart';
 
 class VerifyEmailPage extends StatefulWidget {
   const VerifyEmailPage({super.key});
@@ -53,19 +50,37 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
                 ),
                 secondChild: Container(),
               ),
-              SizedBox(
+              Container(
                 width: double.infinity,
                 child: FilledButton(
                     onPressed: busy
                         ? null
                         : () {
-                            BlocProvider.of<AuthenticationBloc>(context)
-                                .add(AuthenticationEmailVerificationRequest());
+                            bloc.add(AuthenticationEmailVerificationRequest());
                             setState(() {
                               busy = true;
                             });
                           },
                     child: Text("Verify Email")),
+              ),
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.only(top: 10),
+                child: FilledButton.tonal(
+                    onPressed: busy
+                        ? null
+                        : () {
+                            BlocProvider.of<AuthenticationBloc>(context).add(
+                                AuthenticationEmailVerificationCancelRequest());
+                            Future.delayed(Duration(milliseconds: 10), () {
+                              GoRouter.of(context)
+                                  .goNamed(IndexedRoutes().routes[0].name);
+                            });
+                            setState(() {
+                              busy = true;
+                            });
+                          },
+                    child: Text("I'll do it later")),
               )
             ],
           ),

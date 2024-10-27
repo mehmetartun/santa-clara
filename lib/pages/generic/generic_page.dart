@@ -1,5 +1,5 @@
-import 'package:csen268_f24_g0/widgets/logged_in_user_avatar.dart';
-import 'package:csen268_f24_g0/widgets/main_drawer.dart';
+import 'package:santa_clara/widgets/logged_in_user_avatar.dart';
+import 'package:santa_clara/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 
 class GenericPage extends StatelessWidget {

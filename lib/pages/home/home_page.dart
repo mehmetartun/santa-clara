@@ -1,4 +1,4 @@
-import 'package:csen268_f24_g0/blocs/authentication/bloc/authentication_bloc.dart';
+import 'package:santa_clara/blocs/authentication/bloc/authentication_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

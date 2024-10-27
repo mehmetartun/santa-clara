@@ -1,12 +1,11 @@
 import 'dart:async';
 
-import 'package:csen268_f24_g0/models/user.dart';
-import 'package:csen268_f24_g0/services/mock/mock.dart';
+import 'package:santa_clara/models/auth_user.dart';
+import 'package:santa_clara/models/user.dart';
+import 'package:santa_clara/repositories/authentication/authentication_repository.dart';
+import 'package:santa_clara/services/mock/mock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../models/auth_user.dart';
-import '../../../repositories/authentication/authentication_repository.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';
@@ -34,6 +33,12 @@ class AuthenticationBloc
     });
     on<AuthenticationEmailVerificationRequest>((event, emit) {
       verifyEmail(event, emit);
+    });
+    on<AuthenticationEmailVerificationScreenEvent>((event, emit) {
+      emit(AuthenticationEmailVerificationScreenState());
+    });
+    on<AuthenticationEmailVerificationCancelRequest>((event, emit) {
+      emit(AuthenticationSignedInState(user: user!));
     });
   }
   late final AuthenticationRepository authenticationRepository;
@@ -66,10 +71,15 @@ class AuthenticationBloc
       imageUrl: authUser.imageUrl ?? Mock.imageUrl(),
       emailVerified: authUser.emailVerified ?? false,
     );
-    add(AuthenticationSignedInEvent());
+    if (user!.emailVerified) {
+      add(AuthenticationSignedInEvent());
+    } else {
+      add(AuthenticationEmailVerificationScreenEvent());
+    }
   }
 
   void verifyEmail(event, emit) {
+    emit(AuthenticationVerifyEmailState());
     authenticationRepository.verifyEmail(user?.email);
   }
 

@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-
-import '../../models/auth_user.dart';
+import 'package:santa_clara/models/auth_user.dart';
 
 class AuthenticationRepository {
   AuthUser getCurrentUser() {

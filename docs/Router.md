@@ -1,16 +1,16 @@
 # Router Configuration
 
-## Route
-We create a `Route` object with required and optional parameters in [route_name.dart](/lib/navigation/route_name.dart) that will allow us to define named routes and also labels and icons for bottom navigation automatically.
+## MyRoute
+We create a `MyRoute` object with required and optional parameters in [my_routes.dart](/lib/navigation/my_routes.dart) that will allow us to define named routes and also labels and icons for bottom navigation automatically.
 ```dart
-class Route {
+class MyRoute {
   final String name;
   final String path;
   String? label;
   IconData? icon;
   Widget? child;
 
-  Route(
+  MyRoute(
       {required this.name,
       required this.path,
       this.icon,
@@ -19,12 +19,12 @@ class Route {
 }
 ```
 
-## RouteName
-The `Route` objects defined above are used in the `RouteName` class in [route_name.dart](/lib/navigation/route_name.dart) which gives us a name and a path for the top level routes.
+## MyRoutes
+The `MyRoute` objects defined above are used in the `MyRoutes` class in [my_routes.dart](/lib/navigation/my_routes.dart) which gives us a name and a path for the top level routes.
 
 ```dart
-class RouteName {
-  static Route home = Route(name: 'home', path: '/');
+class MyRoutes {
+  static MyRoute home = MyRoute(name: 'home', path: '/');
   ... // other top lavel destinations here
 }
 ```
@@ -32,8 +32,8 @@ class RouteName {
 We also define `IndexedRoutes` class in [route_name.dart](/lib/navigation/route_name.dart) which gives us the routes corresponding to the index in the bottom navigation bar. 
 ```dart
 class IndexedRoutes {
-  final List<Route> routes = [
-    Route(
+  final List<MyRoute> routes = [
+    MyRoute(
         name: 'images',
         path: 'images',
         label: 'Images',
@@ -89,8 +89,8 @@ GoRouter router(AuthenticationBloc authenticationBloc) {
       },
       routes: [
         GoRoute(
-          name: RouteName.home.name,
-          path: RouteName.home.path,
+          name: MyRoutes.home.name,
+          path: MyRoutes.home.path,
           builder: (context, state) => HomePage(),
           routes: [
             ShellRoute(

@@ -12,3 +12,8 @@ final class AuthenticationSignedInState extends AuthenticationState {
 
   AuthenticationSignedInState({required this.user});
 }
+
+final class AuthenticationVerifyEmailState extends AuthenticationState {}
+
+final class AuthenticationEmailVerificationScreenState
+    extends AuthenticationState {}

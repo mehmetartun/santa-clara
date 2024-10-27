@@ -1,7 +1,7 @@
-import 'package:csen268_f24_g0/blocs/authentication/bloc/authentication_bloc.dart';
-import 'package:csen268_f24_g0/widgets/brightness_selector.dart';
-import 'package:csen268_f24_g0/widgets/email_verification_button.dart';
-import 'package:csen268_f24_g0/widgets/logged_in_user_avatar.dart';
+import 'package:santa_clara/blocs/authentication/bloc/authentication_bloc.dart';
+import 'package:santa_clara/widgets/brightness_selector.dart';
+import 'package:santa_clara/widgets/email_verification_button.dart';
+import 'package:santa_clara/widgets/logged_in_user_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

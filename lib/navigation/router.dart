@@ -1,15 +1,14 @@
-import 'package:csen268_f24_g0/blocs/authentication/bloc/authentication_bloc.dart';
-import 'package:csen268_f24_g0/repositories/authentication/authentication_repository.dart';
-import 'package:csen268_f24_g0/utilities/stream_to_listenable.dart';
-import 'package:csen268_f24_g0/widgets/scaffold_with_nav_bar.dart';
+import 'package:santa_clara/blocs/authentication/bloc/authentication_bloc.dart';
+import 'package:santa_clara/pages/home/home_page.dart';
+import 'package:santa_clara/pages/signIn/sign_in_page.dart';
+import 'package:santa_clara/pages/verifyEmail/verify_email_page.dart';
+import 'package:santa_clara/utilities/stream_to_listenable.dart';
+import 'package:santa_clara/widgets/scaffold_with_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../pages/home/home_page.dart';
-import '../pages/signIn/sign_in_page.dart';
-import '../pages/verifyEmail/verify_email_page.dart';
-import 'route_name.dart';
+import 'my_routes.dart';
 
 List<GoRoute> shellRoutes =
     List.generate(IndexedRoutes().routes.length, (index) {
@@ -22,51 +21,45 @@ List<GoRoute> shellRoutes =
   );
 });
 
+extension on GoRouterState {
+  String get inf =>
+      'name: $name fullPath: $fullPath matched: $matchedLocation \n'
+      '         path: $path topRoute: ${topRoute?.path} ${uri.path}';
+}
+
 GoRouter router(AuthenticationBloc authenticationBloc) {
   final GlobalKey<NavigatorState> rootNavigatorKey =
       GlobalKey<NavigatorState>(debugLabel: "Root");
   final GlobalKey<NavigatorState> shellNavigatorKey =
       GlobalKey<NavigatorState>(debugLabel: "Shell");
+
   return GoRouter(
-      // initialLocation: IndexedRoutes().routes[0].name,
+      //observers: [MyNavObserver()],
       navigatorKey: rootNavigatorKey,
-      // initialLocation: RouteName.home.path + IndexedRoutes().routes[0].path,
       initialLocation: "/images",
       refreshListenable: StreamToListenable([authenticationBloc.stream]),
       redirect: (context, state) {
-        if (BlocProvider.of<AuthenticationBloc>(context).state
-                is! AuthenticationSignedInState &&
-            !(state.fullPath?.startsWith(RouteName.signIn.path) ?? false)) {
-          return RouteName.signIn.path;
+        AuthenticationState authenticationState =
+            BlocProvider.of<AuthenticationBloc>(context).state;
+        if (authenticationState is AuthenticationVerifyEmailState ||
+            authenticationState is AuthenticationEmailVerificationScreenState) {
+          return MyRoutes.verifyEmail.path;
         }
-        if (state.fullPath?.startsWith(RouteName.verifyEmail.path) ?? false) {
-          if (BlocProvider.of<AuthenticationBloc>(context).state
-              is AuthenticationSignedInState) {
-            if (RepositoryProvider.of<AuthenticationRepository>(context)
-                    .getCurrentUser()
-                    .emailVerified ??
-                false) {
-              return null;
-            } else {
-              return RouteName.verifyEmail.path;
-            }
-          }
+        if (authenticationState is! AuthenticationSignedInState) {
+          return MyRoutes.signIn.path;
         }
-        if (BlocProvider.of<AuthenticationBloc>(context).state
-                is AuthenticationSignedInState &&
-            !(state.fullPath?.startsWith(RouteName.verifyEmail.path) ??
-                false)) {
+        if (state.fullPath?.startsWith("/signIn") ?? false) {
           return "/images";
         }
-        return null;
       },
       routes: [
         GoRoute(
-          name: RouteName.home.name,
-          path: RouteName.home.path,
+          name: MyRoutes.home.name,
+          path: MyRoutes.home.path,
           builder: (context, state) => HomePage(),
           routes: [
             ShellRoute(
+              // observers: [MyNavObserver()],
               navigatorKey: shellNavigatorKey,
               routes: shellRoutes,
               builder: (context, state, child) {
@@ -78,13 +71,13 @@ GoRouter router(AuthenticationBloc authenticationBloc) {
           ],
         ),
         GoRoute(
-          name: RouteName.verifyEmail.name,
-          path: RouteName.verifyEmail.path,
+          name: MyRoutes.verifyEmail.name,
+          path: MyRoutes.verifyEmail.path,
           builder: (context, state) => VerifyEmailPage(),
         ),
         GoRoute(
-          name: RouteName.signIn.name,
-          path: RouteName.signIn.path,
+          name: MyRoutes.signIn.name,
+          path: MyRoutes.signIn.path,
           builder: (context, state) => SignInPage(),
         ),
       ]);

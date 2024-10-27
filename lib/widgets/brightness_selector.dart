@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../theme/cubit/theme_cubit.dart';
+import 'package:santa_clara/theme/cubit/theme_cubit.dart';
 
 class BrightnessSelector extends StatelessWidget {
   const BrightnessSelector({super.key});

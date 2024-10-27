@@ -1,8 +1,7 @@
-import 'package:csen268_f24_g0/widgets/user_avatar_image.dart';
+import 'package:santa_clara/blocs/authentication/bloc/authentication_bloc.dart';
+import 'package:santa_clara/widgets/user_avatar_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../blocs/authentication/bloc/authentication_bloc.dart';
 
 enum UserAvatarSize {
   small,

@@ -1,4 +1,4 @@
-import 'package:csen268_f24_g0/models/user.dart';
+import 'package:santa_clara/models/user.dart';
 import 'package:flutter/material.dart';
 
 class UserAvatarImage extends StatelessWidget {

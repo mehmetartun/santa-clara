@@ -18,3 +18,8 @@ class AuthenticationSignedOutEvent extends AuthenticationEvent {}
 class AuthenticationSignedInEvent extends AuthenticationEvent {}
 
 class AuthenticationEmailVerificationRequest extends AuthenticationEvent {}
+
+class AuthenticationEmailVerificationCancelRequest
+    extends AuthenticationEvent {}
+
+class AuthenticationEmailVerificationScreenEvent extends AuthenticationEvent {}
