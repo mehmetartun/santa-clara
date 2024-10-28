@@ -1,9 +1,9 @@
 # Creating Launcher Icons for Mobile and Web
 
-A package called [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons) is helpful in creating icons for iOS, Android, and Web.
+A package called [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) is helpful in creating icons for iOS, Android, and Web.
 
 1. Find the image you want to use as icon, in 1000x1000 resolution as a **.png** file.
-2. Place this file in the directory `/assets/icons/<your-icon-image.png>` as here [assets/icons/launcher_icon.png](assets/icons/launcher_icon.png)
+2. Place this file in the directory `/assets/icons/<your-icon-image.png>` as here [assets/icons/launcher_icon.png](/assets/icons/launcher_icon.png)
 3. Place the icon for the web in `/web/icons/launcher_icon.png` as here [web/icons/launcher_icon.png](/web/icons/launcher_icon.png)
 4. In the `pubspec.yaml` file enter the following
 ```yaml
@@ -22,4 +22,4 @@ flutter_launcher_icons:
 dart run flutter_launcher_icons
 ```
 
-Your icons will now be created and placed in appropriate directories
+Your icons will now be created and placed in appropriate directories. If you want further customization you can read the package, or manually generate the icons using various websites.
