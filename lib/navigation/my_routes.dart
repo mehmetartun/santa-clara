@@ -1,3 +1,4 @@
+import 'package:santa_clara/pages/articles/articles_page.dart';
 import 'package:santa_clara/pages/generic/generic_page.dart';
 import 'package:santa_clara/pages/profile/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class IndexedRoutes {
         path: 'articles',
         label: 'Articles',
         icon: Icons.text_snippet,
-        child: GenericPage(title: "Articles")),
+        child: ArticlesPage()),
     MyRoute(
         name: 'chat',
         path: 'chat',
