@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="csen268_f24_g0"
+        android:label="santa_clara"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "csen268_f24_g0",
+            "name": "santa_clara",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "csen268_f24_g0 (profile mode)",
+            "name": "santa_clara (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "csen268_f24_g0 (release mode)",
+            "name": "santa_clara (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

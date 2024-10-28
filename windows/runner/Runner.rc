@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "csen268_f24_g0" "\0"
+            VALUE "FileDescription", "santa_clara" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "csen268_f24_g0" "\0"
+            VALUE "InternalName", "santa_clara" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "csen268_f24_g0.exe" "\0"
-            VALUE "ProductName", "csen268_f24_g0" "\0"
+            VALUE "OriginalFilename", "santa_clara.exe" "\0"
+            VALUE "ProductName", "santa_clara" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

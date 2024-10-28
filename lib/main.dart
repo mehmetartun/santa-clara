@@ -90,6 +90,7 @@ class MyApp extends StatelessWidget {
           child: BlocBuilder<ThemeCubit, ThemeState>(
             builder: (context, state) {
               return MaterialApp.router(
+                debugShowCheckedModeBanner: false,
                 title: 'Santa Clara',
                 theme: theme.light(),
                 darkTheme: theme.dark(),
