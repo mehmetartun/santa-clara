@@ -36,6 +36,7 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+/android/key.properties
 
 # Related to Firebase Initialization
 /lib/firebase_options.dart
