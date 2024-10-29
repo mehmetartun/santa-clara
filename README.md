@@ -1,5 +1,7 @@
 # Santa Clara
 
+![Santa Clara](/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png)
+
 Template for the CSEN268 Final Project with Flutter and Firebase
 
 The documentation for this repo is in [docs](/docs)
