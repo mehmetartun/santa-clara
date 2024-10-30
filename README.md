@@ -4,6 +4,8 @@
 
 Template for the CSEN268 Final Project with Flutter and Firebase
 
+[Web App](https://csen268-f24-g0.firebaseapp.com/images)
+
 The documentation for this repo is in [docs](/docs)
 
 1. [App Structure](/docs/AppStructure.md)
