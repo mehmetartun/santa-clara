@@ -24,11 +24,8 @@ class SignInPage extends StatelessWidget {
         providers: [EmailAuthProvider()],
         actions: [
           AuthStateChangeAction<SignedIn>((context, state) {
-            if (!state.user!.emailVerified) {
-              GoRouter.of(context).goNamed(RouteName.verifyEmail.name);
-            } else {
-              GoRouter.of(context).goNamed(IndexedRoutes().routes[0].name);
-            }
+            // We are not handling anything here. If the user is signed in, then Authentication Bloc catches these
+            // events through the subscription to the authUser via the AuthenticationRepository
           }),
         ],
       ),
