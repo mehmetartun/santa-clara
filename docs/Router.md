@@ -108,6 +108,29 @@ GoRouter router(AuthenticationBloc authenticationBloc) {
       ]);
 }
 ```
-
+## Redirect of the GoRouter
+The redirect works in a **cascade** (waterfall) fashion
+```dart
+GoRouter(
+      ...
+      refreshListenable: StreamToListenable([authenticationBloc.stream]),
+      redirect: (context, state) {
+        AuthenticationState authenticationState =
+            BlocProvider.of<AuthenticationBloc>(context).state;
+        if (authenticationState is AuthenticationVerifyEmailState ||
+            authenticationState is AuthenticationEmailVerificationScreenState) {
+          return MyRoutes.verifyEmail.path;
+        }
+        if (authenticationState is! AuthenticationSignedInState) {
+          return MyRoutes.signIn.path;
+        }
+        if (state.fullPath?.startsWith("/signIn") ?? false) {
+          return "/images";
+        }
+      },
+      ...
+)
+```
+The first part of the waterfall can only be reached if the user is **Signed In** but email not verified. In the second part, we check for authentication state. If user is not signed in, then they need to go to the **SignIn** page and sign in. And finally for whatever reason the user is pointing to the **SignIn** page but he **is actually** signed in, then send the user to the start page of the app, meaning **/images**.
 
 

@@ -4,6 +4,8 @@
 
 Template for the CSEN268 Final Project with Flutter and Firebase
 
+[Web App](https://csen268-f24-g0.firebaseapp.com/images)
+
 The documentation for this repo is in [docs](/docs)
 
 1. [App Structure](/docs/AppStructure.md)
@@ -14,7 +16,7 @@ The documentation for this repo is in [docs](/docs)
 6. [Bottom Navigation](/docs/BottomNavigation.md)
 7. [Authentication Bloc](/docs/AuthenticationBloc.md)
 8. [Firebase UI Auth](/docs/FirebaseUIAuth.md)
-9. [Firestore](/docs/Firestore.md)\
+9. [Firestore](/docs/Firestore.md)
 10. [Authentication Repository](/docs/AuthenticationRepository.md)
 
 ## Important info on creating Flutter apps with Firebase
