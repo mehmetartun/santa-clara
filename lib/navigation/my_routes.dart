@@ -10,6 +10,7 @@ class MyRoutes {
   static MyRoute signIn = MyRoute(name: 'signIn', path: '/signIn');
   static MyRoute verifyEmail =
       MyRoute(name: 'verifyEmail', path: '/verifyEmail');
+  static MyRoute privacy = MyRoute(name: 'privacy', path: '/privacy');
 }
 
 class IndexedRoutes {

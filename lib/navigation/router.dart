@@ -1,4 +1,5 @@
 import 'package:santa_clara/blocs/authentication/bloc/authentication_bloc.dart';
+import 'package:santa_clara/pages/generic/generic_page.dart';
 import 'package:santa_clara/pages/home/home_page.dart';
 import 'package:santa_clara/pages/signIn/sign_in_page.dart';
 import 'package:santa_clara/pages/verifyEmail/verify_email_page.dart';
@@ -39,6 +40,9 @@ GoRouter router(AuthenticationBloc authenticationBloc) {
       initialLocation: "/images",
       refreshListenable: StreamToListenable([authenticationBloc.stream]),
       redirect: (context, state) {
+        if (state.fullPath?.endsWith("privacy") ?? false) {
+          return null;
+        }
         AuthenticationState authenticationState =
             BlocProvider.of<AuthenticationBloc>(context).state;
         if (authenticationState is AuthenticationVerifyEmailState ||
@@ -74,6 +78,11 @@ GoRouter router(AuthenticationBloc authenticationBloc) {
           name: MyRoutes.verifyEmail.name,
           path: MyRoutes.verifyEmail.path,
           builder: (context, state) => VerifyEmailPage(),
+        ),
+        GoRoute(
+          name: MyRoutes.privacy.name,
+          path: MyRoutes.privacy.path,
+          builder: (context, state) => GenericPage(title: "Privacy"),
         ),
         GoRoute(
           name: MyRoutes.signIn.name,

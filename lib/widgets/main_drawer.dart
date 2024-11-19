@@ -1,4 +1,6 @@
+import 'package:go_router/go_router.dart';
 import 'package:santa_clara/blocs/authentication/bloc/authentication_bloc.dart';
+import 'package:santa_clara/navigation/my_routes.dart';
 import 'package:santa_clara/widgets/brightness_selector.dart';
 import 'package:santa_clara/widgets/email_verification_button.dart';
 import 'package:santa_clara/widgets/logged_in_user_avatar.dart';
@@ -38,9 +40,11 @@ class MainDrawer extends StatelessWidget {
                 label: Text("Other"),
                 onPressed: () {}),
             TextButton.icon(
-                icon: Icon(Icons.question_mark),
-                label: Text("Other"),
-                onPressed: () {}),
+                icon: Icon(Icons.privacy_tip),
+                label: Text("Privacy"),
+                onPressed: () {
+                  GoRouter.of(context).goNamed(MyRoutes.privacy.name);
+                }),
             EmailVerificationButton(),
             TextButton.icon(
                 icon: Icon(Icons.logout),
