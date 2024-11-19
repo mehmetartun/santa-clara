@@ -16,6 +16,7 @@ The documentation for this repo is in [docs](/docs)
 8. [Firebase UI Auth](/docs/FirebaseUIAuth.md)
 9. [Firestore](/docs/Firestore.md)\
 10. [Authentication Repository](/docs/AuthenticationRepository.md)
+11. [TroubleShooting](/docs/TroubleShooting.md)
 
 ## Important info on creating Flutter apps with Firebase
 
